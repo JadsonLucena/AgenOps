@@ -1,24 +1,26 @@
 # Integration Map
 
-## Core integration points
+## Canonical layer map
 
-| Layer | Contract path | Purpose |
+| Layer | Path | Purpose |
 |---|---|---|
-| Core | `kit/core` | roles, workflows, playbooks |
+| Core | `kit/core` | roles, workflows, playbooks, protocols |
+| Skills | `kit/skills` | reusable capabilities for agents |
 | State | `kit/state` | canonical shared task state |
-| Runtime | `kit/runtime` | context, memory, observability hooks |
-| Validation | `kit/validation` | deterministic and semantic validation |
-| Security | `security/` | threat model, trust boundaries, permissions |
-| Judging | `kit/judging` | qualitative review and human gate support |
-| Experience | `kit/experience` | routing and phase navigation |
+| Runtime | `kit/runtime` | execution, memory, observability hooks |
+| Validation | `kit/validation` | system and step consistency enforcement |
+| Security | `security` | permissions and trust boundaries |
+| Judging | `kit/judging` | advisory qualitative evaluation |
+| Experience | `kit/experience` | routing, onboarding, phase map |
 | Templates | `kit/templates` | artifact blueprints |
-| Policies | `kit/policies` | global constraints |
+| Policies | `kit/policies` | global governance rules |
 | Topology | `governance/topology` | team ownership and interaction modes |
-| Decision | `governance/decision` | explicit decision framework |
-| Telemetry | `runtime/telemetry` | runtime observability |
-| Economics | `governance/economics` | budget and cost controls |
-| GitOps | `governance/gitops` | semver, commits, branch flow |
-| Learning | `learning/` | incidents, retrospectives, evolution |
+| Decision | `governance/decision` | ADR + ToT |
+| Telemetry | `runtime/telemetry` | logs, traces, metrics |
+| Economics | `governance/economics` | cost and budget control |
+| GitOps | `governance/gitops` | versioning and change management |
+| Learning | `learning` | incidents, retrospectives, evolution |
+| Meta-model | `meta-model` | global consistency contract |
 
-## System-level coupling rule
-A layer may depend on lower-level artifacts for reading or validation, but it must not silently mutate another layer's canonical source of truth.
+## Compatibility note
+Some legacy mirror paths are retained for downstream consumers. The canonical contract is defined by the layer map above and the meta-model.

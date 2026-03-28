@@ -1,3 +1,12 @@
-# Policies Module
+# Policies
 
-Contains operational policies that support execution and reference canonical strategic policy where applicable.
+Policies define the governance rules that constrain the system.
+
+They cover:
+- approvals
+- human-in-the-loop
+- command behavior
+- data handling
+- security by design
+- versioning
+- artifact promotion

@@ -4,7 +4,6 @@
 Ensure each workflow step is predictable, valid, and well-defined.
 
 ## Step Contract
-
 Each step must define:
 
 ### Inputs
@@ -30,8 +29,7 @@ Each step must define:
 - bypassing validation or review
 
 ## Example
-
-Step: "review"
+Step: `review`
 
 Inputs:
 - completed implementation
@@ -39,7 +37,7 @@ Inputs:
 
 Outputs:
 - review report
-- approval/rejection
+- approval / rejection
 
 Exit Criteria:
 - QA review completed
@@ -50,30 +48,24 @@ Next:
 - rework
 
 ## Validation Rules
-
-- No step executes without required inputs
-- No step completes without exit criteria
-- No transition allowed outside defined flow
+- No step executes without required inputs.
+- No step completes without exit criteria.
+- No transition is allowed outside the defined flow.
 
 ## Exploration Requirements
-
 Steps may require structured exploration:
+- artifact generation → use SoT when the artifact is complex
+- high-impact decision → use ToT when the decision has multiple viable branches
 
-- artifact generation → SHOULD use SoT when the artifact is complex
-- high-impact decision → SHOULD use ToT when the decision has multiple viable branches
-
-A step is INVALID if:
-- required exploration protocol is explicitly mandated by policy and skipped
+A step is invalid if a required exploration protocol is explicitly mandated by policy and skipped.
 
 ## Enforcement
-
-Workflow is INVALID if:
+Workflow is invalid if:
 - step executed without inputs
 - step skipped validation
 - undefined transition detected
 
 ## Integration
-
 This must integrate with:
 - state-machine
 - runtime engine

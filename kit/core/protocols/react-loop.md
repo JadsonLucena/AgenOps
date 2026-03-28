@@ -5,13 +5,13 @@ Standardize agent execution as a controlled loop:
 
 **Observe → Reason → Act → Verify**
 
-This protocol is intended to keep agents predictable, auditable, and bounded by governance.
+This protocol keeps agents predictable, auditable, and bounded by governance.
 
 ## Applicability
 Use this protocol when an agent must:
 - inspect current state
 - choose the next action
-- perform a tool/action step
+- perform a bounded action
 - verify the outcome before proceeding
 
 ## Loop phases
@@ -54,7 +54,6 @@ Check whether the action had the intended effect:
 If verification fails, do not advance blindly. Re-enter the loop with the failure as input.
 
 ## Operational rules
-
 - Every loop iteration must be traceable.
 - Every action must emit telemetry.
 - Every action must respect trust boundaries.
@@ -74,7 +73,6 @@ If verification fails, do not advance blindly. Re-enter the loop with the failur
 - telemetry event
 
 ## Anti-patterns
-
 - acting before observing
 - reasoning without a bounded next action
 - skipping verification
@@ -89,9 +87,10 @@ If verification fails, do not advance blindly. Re-enter the loop with the failur
 - telemetry
 - human-in-the-loop policy
 - decision framework
+- exploration protocols
 
 ## Enforcement
-Any agent that operates under this protocol must be validated against:
+Any agent operating under this protocol must be validated against:
 - step consistency
 - system consistency
 - security permissions

@@ -7,6 +7,7 @@ This document defines how the system evolves based on feedback.
 - retrospectives
 - telemetry metrics
 - review findings
+- recurring skill gaps
 
 ## Evolution targets
 
@@ -33,8 +34,11 @@ This document defines how the system evolves based on feedback.
 - refine decision boundaries
 - reduce unnecessary branching
 
-## Evolution loop (OODA)
+### 6. Skills
+- update reusable capabilities when the same work pattern repeats
+- version skills when their inputs/outputs change
 
+## Evolution loop (OODA)
 1. Observe
    - telemetry
    - incidents
@@ -45,7 +49,7 @@ This document defines how the system evolves based on feedback.
    - classify failures
 
 3. Decide
-   - what to change (contract, validation, policy, heuristic)
+   - what to change (contract, validation, policy, skill, or heuristic)
 
 4. Act
    - update kit
@@ -53,6 +57,5 @@ This document defines how the system evolves based on feedback.
    - communicate impact
 
 ## Rule
-
 If a problem happens more than once:
-→ it must become a rule, validation, or contract update
+→ it must become a rule, validation, skill update, or contract update

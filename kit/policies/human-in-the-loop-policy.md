@@ -4,8 +4,7 @@
 Define when human intervention is mandatory in an AI-assisted governance system.
 
 ## Mandatory Triggers
-Human approval is REQUIRED when:
-
+Human approval is required when any of the following apply:
 - irreversible decisions
 - high systemic impact
 - security-sensitive changes
@@ -15,13 +14,13 @@ Human approval is REQUIRED when:
 - high drift
 
 ## Enforcement
-- system must block execution if human approval is required
-- no agent can self-approve
-- all approvals must be traceable
+- The system must block execution if human approval is required.
+- No agent may self-approve.
+- All approvals must be traceable.
 
 ## Telemetry
 Must emit:
-- intervention_triggered
-- intervention_reason
-- intervention_role
-- intervention_outcome
+- `intervention_triggered`
+- `intervention_reason`
+- `intervention_role`
+- `intervention_outcome`

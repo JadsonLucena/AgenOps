@@ -1,12 +1,9 @@
 # Governance
 
-Strategic governance for the system.
+Governance contains the higher-level controls that shape how the system evolves and operates.
 
-## Contains
+## Areas
 - decision
+- topology
 - economics
 - gitops
-- topology
-
-## Rule
-This layer sets the rules that the operational kit implements.

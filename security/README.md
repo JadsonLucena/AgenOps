@@ -1,13 +1,11 @@
-# Security Layer
+# Security
 
-This layer makes security explicit and systematic for AI-agent governance.
+Security makes risk, trust boundaries, permissions, and threat modeling explicit.
 
 It covers:
 - threat modeling
 - trust boundaries
 - agent permissions
-- blast-radius control
-- prompt-injection resistance
-- least-privilege enforcement
-
-The design is intentionally aligned with threat modeling practice, zero-trust principles, and secure-by-design guidance.
+- prompt injection defense
+- secure-by-design principles
+- supply-chain security

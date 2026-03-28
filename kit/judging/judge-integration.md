@@ -4,19 +4,19 @@
 
 ### ReAct Loop
 - judge can run after `verify`
-- influences next action (revise vs proceed)
+- judge influences the next action (`revise` vs `proceed`)
 
 ### Human-in-the-loop
-- low score triggers human review
+- low score can trigger human review
 
 ### Validation
-- judge complements validation, does not replace it
+- judge complements validation, it does not replace it
 
 ### Decision framework
-- can score alternatives in trade-off matrix
+- judge can score alternatives in the trade-off matrix
 
 ## Rule
-judge result must never override:
+Judge results must never override:
 - validation failure
 - security violation
 - policy violation

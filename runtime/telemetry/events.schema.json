@@ -14,8 +14,7 @@
   ],
   "properties": {
     "timestamp": {
-      "type": "string",
-      "description": "ISO-8601 timestamp"
+      "type": "string"
     },
     "event_type": {
       "type": "string",
@@ -33,20 +32,37 @@
         "state_rejected",
         "snapshot_created",
         "snapshot_restored",
-        "telemetry_anomaly"
+        "telemetry_anomaly",
+        "human_intervention_required",
+        "intervention_triggered",
+        "intervention_reason",
+        "intervention_role",
+        "intervention_outcome",
+        "react_observed",
+        "react_reasoned",
+        "react_action_started",
+        "react_action_completed",
+        "react_verified",
+        "react_blocked",
+        "sot_outline_created",
+        "sot_section_expanded",
+        "sot_structure_validated",
+        "sot_artifact_refined",
+        "tot_branch_created",
+        "tot_branch_scored",
+        "tot_branch_pruned",
+        "tot_branch_selected",
+        "tot_decision_recorded"
       ]
     },
     "system": {
-      "type": "string",
-      "description": "System or kit identifier"
+      "type": "string"
     },
     "run_id": {
-      "type": "string",
-      "description": "Unique execution run identifier"
+      "type": "string"
     },
     "task_id": {
-      "type": "string",
-      "description": "Task identifier"
+      "type": "string"
     },
     "actor": {
       "type": "object",
@@ -105,88 +121,16 @@
       "minimum": 1
     },
     "decision": {
-      "type": "object",
-      "properties": {
-        "summary": {
-          "type": "string"
-        },
-        "rationale_ref": {
-          "type": "string"
-        },
-        "alternatives_considered": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "confidence": {
-          "type": "number",
-          "minimum": 0,
-          "maximum": 1
-        }
-      }
+      "type": "object"
     },
     "validation": {
-      "type": "object",
-      "properties": {
-        "validator": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string",
-          "enum": [
-            "pass",
-            "fail",
-            "conditional"
-          ]
-        },
-        "errors": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
+      "type": "object"
     },
     "metrics": {
-      "type": "object",
-      "properties": {
-        "contract_compliance": {
-          "type": "number",
-          "minimum": 0,
-          "maximum": 1
-        },
-        "planning_execution_drift": {
-          "type": "number",
-          "minimum": 0
-        },
-        "review_latency_ms": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "token_usage": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "retry_count": {
-          "type": "integer",
-          "minimum": 0
-        }
-      }
+      "type": "object"
     },
     "context": {
-      "type": "object",
-      "properties": {
-        "parent_span_id": {
-          "type": "string"
-        },
-        "span_id": {
-          "type": "string"
-        },
-        "trace_id": {
-          "type": "string"
-        }
-      }
+      "type": "object"
     },
     "details": {
       "type": "object"

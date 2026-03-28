@@ -1,13 +1,16 @@
 {
-  "meta_version": "2.0.0",
+  "meta_version": "3.0.0",
   "system": {
-    "name": "Engineering Governance Kit",
-    "purpose": "Provider-agnostic engineering governance with an explicit split between strategic governance and operational execution, all validated under a single meta-model.",
+    "name": "AgenOps",
+    "purpose": "A governance-driven system of AI agents and reusable skills for software engineering lifecycle support, execution, and control.",
     "owner_role": "software-engineer-orchestrator"
   },
   "layers": {
     "core": {
       "path": "kit/core"
+    },
+    "skills": {
+      "path": "kit/skills"
     },
     "state": {
       "path": "kit/state"
@@ -51,49 +54,21 @@
     "learning": {
       "path": "learning"
     },
-    "kit_core": {
-      "path": "kit/core"
-    },
-    "kit_agents": {
-      "path": "kit/agents"
-    },
-    "kit_runtime": {
-      "path": "kit/runtime"
-    },
-    "kit_state": {
-      "path": "kit/state"
-    },
-    "kit_validation": {
-      "path": "kit/validation"
-    },
-    "kit_security": {
-      "path": "kit/security"
-    },
-    "kit_experience": {
-      "path": "kit/experience"
-    },
-    "kit_templates": {
-      "path": "kit/templates"
-    },
-    "kit_policies": {
-      "path": "kit/policies"
-    },
-    "scripts": {
-      "path": "scripts"
-    },
-    "docs": {
-      "path": "docs"
-    },
-    "planning_artifacts": {
-      "path": "planning_artifacts"
+    "meta_model": {
+      "path": "meta-model"
     }
+  },
+  "skills": {
+    "manifest": "kit/skills/manifest.md",
+    "contract": "kit/skills/skill-contract.md",
+    "catalog": "kit/skills/skill-catalog.md"
   },
   "invariants": [
     {
       "id": "INV-001",
       "statement": "Only the orchestrator may write canonical state.",
       "severity": "critical",
-      "enforcement": "state-write validation",
+      "enforcement": "state write validation",
       "evidence_required": true
     },
     {
@@ -126,33 +101,40 @@
     },
     {
       "id": "INV-006",
-      "statement": "Strategic governance rules live in governance/ and operational execution rules live in kit/.",
+      "statement": "Reusable skills must be registered, versioned, and discoverable.",
       "severity": "error",
-      "enforcement": "layer-boundary validation",
+      "enforcement": "skills registry validation",
       "evidence_required": true
-    },
-    {
-      "id": "INV-007",
-      "statement": "Provider integrations and consumer examples are intentionally excluded from the v2 core.",
-      "severity": "warning",
-      "enforcement": "scope boundary validation",
-      "evidence_required": false
     }
   ],
   "relationships": [
     {
-      "from": "topology",
-      "to": "core",
-      "mode": "governs",
+      "from": "core",
+      "to": "skills",
+      "mode": "reads",
       "allowed": true,
-      "reason": "team ownership and interaction modes constrain how core is used."
+      "reason": "core uses reusable skills to orchestrate work."
     },
     {
-      "from": "core",
-      "to": "state",
-      "mode": "writes",
-      "allowed": false,
-      "reason": "only orchestrator may write canonical state."
+      "from": "runtime",
+      "to": "skills",
+      "mode": "reads",
+      "allowed": true,
+      "reason": "runtime may invoke skills as governed capabilities."
+    },
+    {
+      "from": "validation",
+      "to": "skills",
+      "mode": "reads",
+      "allowed": true,
+      "reason": "validation checks skill contracts and registry."
+    },
+    {
+      "from": "judging",
+      "to": "skills",
+      "mode": "reads",
+      "allowed": true,
+      "reason": "judging may score outputs produced via skills."
     },
     {
       "from": "core",
@@ -160,6 +142,13 @@
       "mode": "reads",
       "allowed": true,
       "reason": "core reads shared state to coordinate roles."
+    },
+    {
+      "from": "core",
+      "to": "state",
+      "mode": "writes",
+      "allowed": false,
+      "reason": "only orchestrator may write canonical state."
     },
     {
       "from": "validation",
@@ -202,41 +191,6 @@
       "mode": "governs",
       "allowed": true,
       "reason": "versioning and commit discipline govern changes to the kit."
-    },
-    {
-      "from": "governance",
-      "to": "kit",
-      "mode": "governs",
-      "allowed": true,
-      "reason": "strategic governance constrains operational execution."
-    },
-    {
-      "from": "kit",
-      "to": "scripts",
-      "mode": "orchestrates",
-      "allowed": true,
-      "reason": "kit execution is exposed through runnable helpers."
-    },
-    {
-      "from": "scripts",
-      "to": "kit",
-      "mode": "reads",
-      "allowed": true,
-      "reason": "scripts consume kit contracts and state."
-    },
-    {
-      "from": "kit",
-      "to": "governance",
-      "mode": "reads",
-      "allowed": true,
-      "reason": "operational files reference strategic policy."
-    },
-    {
-      "from": "docs",
-      "to": "planning_artifacts",
-      "mode": "reads",
-      "allowed": false,
-      "reason": "durable docs must not depend directly on ephemeral drafts."
     }
   ],
   "workflow": {
@@ -247,6 +201,7 @@
       "documentation",
       "testing",
       "implementation",
+      "refactor",
       "review",
       "release",
       "learning"
@@ -354,5 +309,11 @@
     "incidents": "learning/incidents",
     "retrospectives": "learning/retrospectives",
     "pattern_evolution": "learning/pattern-evolution.md"
+  },
+  "meta_model": {
+    "schema": "governance.meta.schema.json",
+    "example": "governance.meta.example.json",
+    "system_consistency": "meta-model/system-consistency.md",
+    "validator": "validator_v3.py"
   }
 }

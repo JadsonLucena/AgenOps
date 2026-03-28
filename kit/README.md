@@ -1,11 +1,14 @@
 # Kit
 
-Operational execution layer for the governance system.
+This directory contains the reusable governance primitives used by AgenOps.
 
-## Canonical role
-This layer contains the concrete workflows, role contracts, state artifacts, templates, and runnable helpers that implement governance decisions.
-
-## Boundaries
-- It consumes strategic policy from `governance/`
-- It does not redefine system-wide policy
-- It is the source of truth for day-to-day execution contracts
+## Canonical areas
+- `core` — roles, workflows, playbooks, and protocols
+- `skills` — reusable capabilities for agents
+- `runtime` — execution model, memory, and telemetry hooks
+- `validation` — system and step consistency enforcement
+- `security` — permissions and trust boundaries
+- `judging` — rubric-based qualitative evaluation
+- `policies` — governance rules
+- `templates` — artifact templates
+- `state` — canonical shared state

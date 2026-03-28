@@ -1,7 +1,6 @@
 # Judge Rubric
 
 ## Dimensions (score 0–5 each)
-
 - clarity
 - completeness
 - consistency
@@ -12,7 +11,7 @@
 - cost_awareness
 
 ## Final score
-sum(dimensions) * 2 → normalized to 0–100
+sum(dimensions) × 2 → normalized to 0–100
 
 ## Thresholds
 - 85–100: strong
@@ -21,4 +20,4 @@ sum(dimensions) * 2 → normalized to 0–100
 - <50: reject
 
 ## Rules
-- any score <2 in critical dimensions → automatic revise
+- any score <2 in a critical dimension → automatic revise

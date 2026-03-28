@@ -1,12 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.com/governance.meta.schema.v2.json",
-  "title": "GovernanceMetaModelV2",
+  "$id": "https://example.com/agenops.meta.schema.v3.json",
+  "title": "AgenOpsMetaModelV3",
   "type": "object",
   "required": [
     "meta_version",
     "system",
     "layers",
+    "skills",
     "invariants",
     "relationships",
     "workflow",
@@ -16,12 +17,13 @@
     "observability",
     "economics",
     "gitops",
-    "learning"
+    "learning",
+    "meta_model"
   ],
   "properties": {
     "meta_version": {
       "type": "string",
-      "pattern": "^2\\.0\\.0$"
+      "pattern": "^3\\.0\\.0$"
     },
     "system": {
       "type": "object",
@@ -41,12 +43,13 @@
           "type": "string"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "layers": {
       "type": "object",
       "required": [
         "core",
+        "skills",
         "state",
         "runtime",
         "validation",
@@ -61,21 +64,13 @@
         "economics",
         "gitops",
         "learning",
-        "kit_core",
-        "kit_agents",
-        "kit_runtime",
-        "kit_state",
-        "kit_validation",
-        "kit_security",
-        "kit_experience",
-        "kit_templates",
-        "kit_policies",
-        "scripts",
-        "docs",
-        "planning_artifacts"
+        "meta_model"
       ],
       "properties": {
         "core": {
+          "type": "object"
+        },
+        "skills": {
           "type": "object"
         },
         "state": {
@@ -120,55 +115,42 @@
         "learning": {
           "type": "object"
         },
-        "kit_core": {
+        "meta_model": {
           "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "skills": {
+      "type": "object",
+      "required": [
+        "manifest",
+        "contract",
+        "catalog"
+      ],
+      "properties": {
+        "manifest": {
+          "type": "string"
         },
-        "kit_agents": {
-          "type": "object"
+        "contract": {
+          "type": "string"
         },
-        "kit_runtime": {
-          "type": "object"
-        },
-        "kit_state": {
-          "type": "object"
-        },
-        "kit_validation": {
-          "type": "object"
-        },
-        "kit_security": {
-          "type": "object"
-        },
-        "kit_experience": {
-          "type": "object"
-        },
-        "kit_templates": {
-          "type": "object"
-        },
-        "kit_policies": {
-          "type": "object"
-        },
-        "scripts": {
-          "type": "object"
-        },
-        "docs": {
-          "type": "object"
-        },
-        "planning_artifacts": {
-          "type": "object"
+        "catalog": {
+          "type": "string"
         }
       },
       "additionalProperties": false
     },
     "invariants": {
       "type": "array",
-      "minItems": 1,
       "items": {
         "type": "object",
         "required": [
           "id",
           "statement",
           "severity",
-          "enforcement"
+          "enforcement",
+          "evidence_required"
         ],
         "properties": {
           "id": {
@@ -192,19 +174,20 @@
           "evidence_required": {
             "type": "boolean"
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "relationships": {
       "type": "array",
-      "minItems": 1,
       "items": {
         "type": "object",
         "required": [
           "from",
           "to",
           "mode",
-          "allowed"
+          "allowed",
+          "reason"
         ],
         "properties": {
           "from": {
@@ -235,7 +218,8 @@
           "reason": {
             "type": "string"
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "workflow": {
@@ -265,7 +249,8 @@
             "type": "string"
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "artifact_lifecycle": {
       "type": "object",
@@ -303,13 +288,15 @@
                   "type": "string"
                 }
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "promotion_rule": {
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "decision_framework": {
       "type": "object",
@@ -327,7 +314,8 @@
             "type": "string"
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "security": {
       "type": "object",
@@ -349,7 +337,8 @@
         "agent_permissions": {
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "observability": {
       "type": "object",
@@ -371,7 +360,8 @@
         "traces": {
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "economics": {
       "type": "object",
@@ -393,7 +383,8 @@
             "type": "string"
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "gitops": {
       "type": "object",
@@ -412,7 +403,8 @@
         "gitflow": {
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "learning": {
       "type": "object",
@@ -431,7 +423,32 @@
         "pattern_evolution": {
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
+    },
+    "meta_model": {
+      "type": "object",
+      "required": [
+        "schema",
+        "example",
+        "system_consistency",
+        "validator"
+      ],
+      "properties": {
+        "schema": {
+          "type": "string"
+        },
+        "example": {
+          "type": "string"
+        },
+        "system_consistency": {
+          "type": "string"
+        },
+        "validator": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false

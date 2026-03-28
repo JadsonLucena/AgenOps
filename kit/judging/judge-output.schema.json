@@ -1,6 +1,10 @@
 {
   "type": "object",
-  "required": ["score", "dimensions", "recommendation"],
+  "required": [
+    "score",
+    "dimensions",
+    "recommendation"
+  ],
   "additionalProperties": false,
   "properties": {
     "score": {
@@ -22,27 +26,67 @@
         "cost_awareness"
       ],
       "properties": {
-        "clarity": {"type": "number", "minimum": 0, "maximum": 5},
-        "completeness": {"type": "number", "minimum": 0, "maximum": 5},
-        "consistency": {"type": "number", "minimum": 0, "maximum": 5},
-        "correctness": {"type": "number", "minimum": 0, "maximum": 5},
-        "security_awareness": {"type": "number", "minimum": 0, "maximum": 5},
-        "maintainability": {"type": "number", "minimum": 0, "maximum": 5},
-        "performance_awareness": {"type": "number", "minimum": 0, "maximum": 5},
-        "cost_awareness": {"type": "number", "minimum": 0, "maximum": 5}
+        "clarity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "completeness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "consistency": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "correctness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "security_awareness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "maintainability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "performance_awareness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "cost_awareness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5
+        }
       }
     },
     "strengths": {
       "type": "array",
-      "items": {"type": "string"}
+      "items": {
+        "type": "string"
+      }
     },
     "weaknesses": {
       "type": "array",
-      "items": {"type": "string"}
+      "items": {
+        "type": "string"
+      }
     },
     "recommendation": {
       "type": "string",
-      "enum": ["approve", "revise", "reject"]
+      "enum": [
+        "approve",
+        "revise",
+        "reject"
+      ]
     }
   }
 }

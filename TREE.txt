@@ -1,4 +1,4 @@
-governance-system-v2/
+AgenOps/
 ├── docs/
 │   ├── api/
 │   │   └── README.md
@@ -19,6 +19,8 @@ governance-system-v2/
 │   │   ├── decision-record-example.md
 │   │   ├── decision-template.md
 │   │   ├── decision-tree.md
+│   │   ├── tot-example.md
+│   │   ├── tot-guidance.md
 │   │   └── tradeoff-matrix.md
 │   ├── economics/
 │   │   ├── README-usage.md
@@ -90,6 +92,9 @@ governance-system-v2/
 │   │   │   ├── update-mer.md
 │   │   │   ├── update-openapi.md
 │   │   │   └── update-uml.md
+│   │   ├── protocols/
+│   │   │   ├── exploration-protocol.md
+│   │   │   └── react-loop.md
 │   │   ├── roles/
 │   │   │   ├── code-reviewer.md
 │   │   │   ├── devops-reviewer.md
@@ -119,6 +124,13 @@ governance-system-v2/
 │   │   ├── state-model.md
 │   │   ├── state-router.py
 │   │   └── state-store.md
+│   ├── judging/
+│   │   ├── README.md
+│   │   ├── judge-example.json
+│   │   ├── judge-integration.md
+│   │   ├── judge-output.schema.json
+│   │   ├── judge-rubric.md
+│   │   └── llm-judge.md
 │   ├── playbooks/
 │   │   ├── brainstorm-and-elicitation.md
 │   │   ├── design-baby-steps.md
@@ -131,6 +143,8 @@ governance-system-v2/
 │   │   ├── generate-test-rules.md
 │   │   ├── qa-quality-gate.md
 │   │   ├── security-review.md
+│   │   ├── skeleton-of-thought.md
+│   │   ├── sot-workflow.example.md
 │   │   ├── update-adr.md
 │   │   ├── update-mer.md
 │   │   ├── update-openapi.md
@@ -146,6 +160,7 @@ governance-system-v2/
 │   │   ├── decision-rationale-policy.md
 │   │   ├── document-generation-triggers.md
 │   │   ├── documentation-hierarchy.md
+│   │   ├── human-in-the-loop-policy.md
 │   │   ├── prompt-injection-defense.md
 │   │   ├── sandbox-policy.md
 │   │   ├── security-by-design.md
@@ -172,6 +187,11 @@ governance-system-v2/
 │   │   │   ├── snapshotting-policy.md
 │   │   │   ├── summarization-policy.md
 │   │   │   └── summarization-rules.md
+│   │   ├── engine/
+│   │   │   ├── react-loop.example.json
+│   │   │   ├── react-loop.md
+│   │   │   ├── react-runtime-contract.md
+│   │   │   └── react-telemetry-events.md
 │   │   ├── memory/
 │   │   │   ├── long-term-memory-policy.md
 │   │   │   ├── memory-retention-and-pruning.md
@@ -197,6 +217,11 @@ governance-system-v2/
 │   │   │   └── supply-chain-checklist.md
 │   │   ├── README.md
 │   │   └── manifest.md
+│   ├── skills/
+│   │   ├── README.md
+│   │   ├── manifest.md
+│   │   ├── skill-catalog.md
+│   │   └── skill-contract.md
 │   ├── state/
 │   │   ├── README.md
 │   │   ├── handoff-envelope.md
@@ -238,6 +263,7 @@ governance-system-v2/
 │   │   ├── run-validator.sh
 │   │   ├── semantic-rules.md
 │   │   ├── skill-validator.md
+│   │   ├── step-consistency.md
 │   │   └── validate_kit.py
 │   ├── workflows/
 │   │   ├── bugfix-flow.md
@@ -254,6 +280,9 @@ governance-system-v2/
 │   ├── README.md
 │   ├── feedback-loop-integration.md
 │   └── pattern-evolution.md
+├── meta-model/
+│   ├── README.md
+│   └── system-consistency.md
 ├── planning_artifacts/
 │   ├── state/
 │   │   ├── README.md
@@ -293,7 +322,8 @@ governance-system-v2/
 │   │   ├── run-sonar.sh
 │   │   └── run-tests.sh
 │   └── validation/
-│       └── validate-kit.sh
+│       ├── validate-kit.sh
+│       └── validate_kit.py
 ├── security/
 │   ├── README-usage.md
 │   ├── README.md
@@ -304,13 +334,13 @@ governance-system-v2/
 │   ├── secure-by-design-principles.md
 │   ├── threat-model.md
 │   └── trust-boundaries.md
-├── CHANGELOG.md
 ├── LICENSE
 ├── MERGE_NOTES.md
 ├── README.md
+├── TREE.txt
 ├── governance.meta.example.json
 ├── governance.meta.schema.json
 ├── integration-map.md
 ├── rules.md
-├── validation-output.json
-└── validator.py
+├── validator.py
+└── validator_v3.py

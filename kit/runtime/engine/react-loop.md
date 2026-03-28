@@ -34,7 +34,6 @@ The runtime must stop the loop when:
 - the next action is undefined
 
 ## Runtime guarantees
-
 - The orchestrator remains the only canonical state writer.
 - Sub-agents may propose actions but do not directly mutate canonical state.
 - Verification is required before advancing to the next step.

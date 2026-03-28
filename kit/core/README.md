@@ -1,16 +1,9 @@
-# Core Module
+# Core
 
-## Scope
+Core contains role contracts, workflow definitions, playbooks, and execution protocols.
 
-The core module defines the standard delivery flow, role responsibilities, and operational playbooks.
-
-## Contains
-
+This is the canonical place for:
 - roles
 - workflows
 - playbooks
-
-## Boundary
-
-The core module does not define runtime state, validation engines, security policy packs, or user experience helpers.
-Those concerns live in `runtime/`, `validation/`, `security/`, and `experience/`.
+- agent-facing protocols

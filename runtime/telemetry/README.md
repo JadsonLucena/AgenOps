@@ -4,7 +4,8 @@ This layer makes the system observable in production.
 
 It captures:
 - structured execution events
-- agent decision traces
+- ReAct traces
+- SoT/ToT events
 - compliance metrics
 - planning-vs-execution drift
 
