@@ -1,0 +1,106 @@
+{
+  "roles": [
+    {
+      "role": "software-engineer-orchestrator",
+      "permission_level": "orchestrator",
+      "can_read": [
+        "planning_artifacts",
+        "docs",
+        "state",
+        "validation_reports",
+        "security_findings",
+        "telemetry"
+      ],
+      "can_write": [
+        "canonical_state",
+        "handoff_envelopes",
+        "approval_records",
+        "archival_metadata"
+      ],
+      "can_execute_tools": [
+        "merge_state",
+        "dispatch_role",
+        "request_validation",
+        "request_security_review"
+      ],
+      "trust_boundary": "canonical governance control plane",
+      "approval_required_for": [
+        "high_risk_state_merge",
+        "policy_exception",
+        "production_release"
+      ],
+      "forbidden_actions": [
+        "silent_state_mutation",
+        "bypass_validation",
+        "bypass_security_review"
+      ],
+      "data_classes_allowed": [
+        "approved_internal",
+        "operational_metadata",
+        "non_secret_planning_content"
+      ]
+    },
+    {
+      "role": "requirements-engineer",
+      "permission_level": "read-only",
+      "can_read": [
+        "planning_artifacts",
+        "docs",
+        "state"
+      ],
+      "can_write": [
+        "planning_artifacts"
+      ],
+      "can_execute_tools": [
+        "draft_spec",
+        "ask_clarifying_questions"
+      ],
+      "trust_boundary": "requirements discovery zone",
+      "approval_required_for": [
+        "promotion_to_docs"
+      ],
+      "forbidden_actions": [
+        "write_canonical_state",
+        "approve_own_output",
+        "access_secrets"
+      ],
+      "data_classes_allowed": [
+        "non_secret",
+        "internal_planning"
+      ]
+    },
+    {
+      "role": "security-reviewer",
+      "permission_level": "reviewer",
+      "can_read": [
+        "planning_artifacts",
+        "docs",
+        "state",
+        "validation_reports",
+        "telemetry",
+        "dependencies"
+      ],
+      "can_write": [
+        "security_findings"
+      ],
+      "can_execute_tools": [
+        "threat_model",
+        "scan_policy",
+        "review_artifact"
+      ],
+      "trust_boundary": "security review zone",
+      "approval_required_for": [
+        "security_exception",
+        "production_high_risk_change"
+      ],
+      "forbidden_actions": [
+        "mutate_canonical_state",
+        "approve_security_exception_without_evidence"
+      ],
+      "data_classes_allowed": [
+        "approved_internal",
+        "security_relevant_metadata"
+      ]
+    }
+  ]
+}

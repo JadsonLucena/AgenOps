@@ -1,0 +1,438 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/governance.meta.schema.v2.json",
+  "title": "GovernanceMetaModelV2",
+  "type": "object",
+  "required": [
+    "meta_version",
+    "system",
+    "layers",
+    "invariants",
+    "relationships",
+    "workflow",
+    "artifact_lifecycle",
+    "decision_framework",
+    "security",
+    "observability",
+    "economics",
+    "gitops",
+    "learning"
+  ],
+  "properties": {
+    "meta_version": {
+      "type": "string",
+      "pattern": "^2\\.0\\.0$"
+    },
+    "system": {
+      "type": "object",
+      "required": [
+        "name",
+        "purpose",
+        "owner_role"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "owner_role": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "layers": {
+      "type": "object",
+      "required": [
+        "core",
+        "state",
+        "runtime",
+        "validation",
+        "security",
+        "judging",
+        "experience",
+        "templates",
+        "policies",
+        "topology",
+        "decision",
+        "telemetry",
+        "economics",
+        "gitops",
+        "learning",
+        "kit_core",
+        "kit_agents",
+        "kit_runtime",
+        "kit_state",
+        "kit_validation",
+        "kit_security",
+        "kit_experience",
+        "kit_templates",
+        "kit_policies",
+        "scripts",
+        "docs",
+        "planning_artifacts"
+      ],
+      "properties": {
+        "core": {
+          "type": "object"
+        },
+        "state": {
+          "type": "object"
+        },
+        "runtime": {
+          "type": "object"
+        },
+        "validation": {
+          "type": "object"
+        },
+        "security": {
+          "type": "object"
+        },
+        "judging": {
+          "type": "object"
+        },
+        "experience": {
+          "type": "object"
+        },
+        "templates": {
+          "type": "object"
+        },
+        "policies": {
+          "type": "object"
+        },
+        "topology": {
+          "type": "object"
+        },
+        "decision": {
+          "type": "object"
+        },
+        "telemetry": {
+          "type": "object"
+        },
+        "economics": {
+          "type": "object"
+        },
+        "gitops": {
+          "type": "object"
+        },
+        "learning": {
+          "type": "object"
+        },
+        "kit_core": {
+          "type": "object"
+        },
+        "kit_agents": {
+          "type": "object"
+        },
+        "kit_runtime": {
+          "type": "object"
+        },
+        "kit_state": {
+          "type": "object"
+        },
+        "kit_validation": {
+          "type": "object"
+        },
+        "kit_security": {
+          "type": "object"
+        },
+        "kit_experience": {
+          "type": "object"
+        },
+        "kit_templates": {
+          "type": "object"
+        },
+        "kit_policies": {
+          "type": "object"
+        },
+        "scripts": {
+          "type": "object"
+        },
+        "docs": {
+          "type": "object"
+        },
+        "planning_artifacts": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "invariants": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "statement",
+          "severity",
+          "enforcement"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "info",
+              "warning",
+              "error",
+              "critical"
+            ]
+          },
+          "enforcement": {
+            "type": "string"
+          },
+          "evidence_required": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "to",
+          "mode",
+          "allowed"
+        ],
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "reads",
+              "writes",
+              "validates",
+              "governs",
+              "orchestrates",
+              "advises",
+              "routes",
+              "observes",
+              "costs",
+              "learns",
+              "deploys"
+            ]
+          },
+          "allowed": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "workflow": {
+      "type": "object",
+      "required": [
+        "phases",
+        "entry",
+        "exit",
+        "gates"
+      ],
+      "properties": {
+        "phases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "entry": {
+          "type": "string"
+        },
+        "exit": {
+          "type": "string"
+        },
+        "gates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "artifact_lifecycle": {
+      "type": "object",
+      "required": [
+        "states",
+        "transitions",
+        "promotion_rule"
+      ],
+      "properties": {
+        "states": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "transitions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "from",
+              "to",
+              "requires"
+            ],
+            "properties": {
+              "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              },
+              "requires": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "promotion_rule": {
+          "type": "string"
+        }
+      }
+    },
+    "decision_framework": {
+      "type": "object",
+      "required": [
+        "template",
+        "criteria"
+      ],
+      "properties": {
+        "template": {
+          "type": "string"
+        },
+        "criteria": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "security": {
+      "type": "object",
+      "required": [
+        "threat_model",
+        "trust_boundaries",
+        "agent_permissions"
+      ],
+      "properties": {
+        "threat_model": {
+          "type": "string"
+        },
+        "trust_boundaries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "agent_permissions": {
+          "type": "string"
+        }
+      }
+    },
+    "observability": {
+      "type": "object",
+      "required": [
+        "events_schema",
+        "metrics",
+        "traces"
+      ],
+      "properties": {
+        "events_schema": {
+          "type": "string"
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "traces": {
+          "type": "string"
+        }
+      }
+    },
+    "economics": {
+      "type": "object",
+      "required": [
+        "budget_schema",
+        "cost_model",
+        "budget_controls"
+      ],
+      "properties": {
+        "budget_schema": {
+          "type": "string"
+        },
+        "cost_model": {
+          "type": "string"
+        },
+        "budget_controls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "gitops": {
+      "type": "object",
+      "required": [
+        "semantic_versioning",
+        "conventional_commits",
+        "gitflow"
+      ],
+      "properties": {
+        "semantic_versioning": {
+          "type": "string"
+        },
+        "conventional_commits": {
+          "type": "string"
+        },
+        "gitflow": {
+          "type": "string"
+        }
+      }
+    },
+    "learning": {
+      "type": "object",
+      "required": [
+        "incidents",
+        "retrospectives",
+        "pattern_evolution"
+      ],
+      "properties": {
+        "incidents": {
+          "type": "string"
+        },
+        "retrospectives": {
+          "type": "string"
+        },
+        "pattern_evolution": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

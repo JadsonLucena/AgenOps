@@ -1,0 +1,44 @@
+task_id: T-2026-001
+task_title: Example task
+task_status: planning
+task_version: 1
+owner:
+  orchestrator: software-engineer-orchestrator
+  last_updated_by: orchestrator
+  last_updated_at: "2026-03-25T00:00:00-03:00"
+objective:
+  summary: Clarify the change and coordinate sub-agents
+  success_criteria:
+    - Requirements are explicit
+    - Design is approved
+scope:
+  in_scope: []
+  out_of_scope: []
+requirements:
+  approved: []
+  open_questions: []
+architecture:
+  decisions: []
+  constraints: []
+artifacts: {}
+subagents:
+  queue: []
+findings:
+  open: []
+  resolved: []
+risks: []
+blockers: []
+context:
+  context_budget_tokens: 12000
+  estimated_context_tokens: 3000
+  context_budget_ratio: 0.25
+  context_status: healthy
+  context_snapshot_version: 1
+  context_snapshot_path: planning_artifacts/state/snapshots/T-2026-001-0001.json
+  context_summary_path: planning_artifacts/state/summaries/T-2026-001-latest.md
+  last_compacted_at: "2026-03-25T00:00:00-03:00"
+changelog:
+  - version: 1
+    changed_by: orchestrator
+    changed_at: "2026-03-25T00:00:00-03:00"
+    summary: Initial snapshot

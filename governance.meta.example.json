@@ -1,0 +1,358 @@
+{
+  "meta_version": "2.0.0",
+  "system": {
+    "name": "Engineering Governance Kit",
+    "purpose": "Provider-agnostic engineering governance with an explicit split between strategic governance and operational execution, all validated under a single meta-model.",
+    "owner_role": "software-engineer-orchestrator"
+  },
+  "layers": {
+    "core": {
+      "path": "kit/core"
+    },
+    "state": {
+      "path": "kit/state"
+    },
+    "runtime": {
+      "path": "kit/runtime"
+    },
+    "validation": {
+      "path": "kit/validation"
+    },
+    "security": {
+      "path": "security"
+    },
+    "judging": {
+      "path": "kit/judging"
+    },
+    "experience": {
+      "path": "kit/experience"
+    },
+    "templates": {
+      "path": "kit/templates"
+    },
+    "policies": {
+      "path": "kit/policies"
+    },
+    "topology": {
+      "path": "governance/topology"
+    },
+    "decision": {
+      "path": "governance/decision"
+    },
+    "telemetry": {
+      "path": "runtime/telemetry"
+    },
+    "economics": {
+      "path": "governance/economics"
+    },
+    "gitops": {
+      "path": "governance/gitops"
+    },
+    "learning": {
+      "path": "learning"
+    },
+    "kit_core": {
+      "path": "kit/core"
+    },
+    "kit_agents": {
+      "path": "kit/agents"
+    },
+    "kit_runtime": {
+      "path": "kit/runtime"
+    },
+    "kit_state": {
+      "path": "kit/state"
+    },
+    "kit_validation": {
+      "path": "kit/validation"
+    },
+    "kit_security": {
+      "path": "kit/security"
+    },
+    "kit_experience": {
+      "path": "kit/experience"
+    },
+    "kit_templates": {
+      "path": "kit/templates"
+    },
+    "kit_policies": {
+      "path": "kit/policies"
+    },
+    "scripts": {
+      "path": "scripts"
+    },
+    "docs": {
+      "path": "docs"
+    },
+    "planning_artifacts": {
+      "path": "planning_artifacts"
+    }
+  },
+  "invariants": [
+    {
+      "id": "INV-001",
+      "statement": "Only the orchestrator may write canonical state.",
+      "severity": "critical",
+      "enforcement": "state-write validation",
+      "evidence_required": true
+    },
+    {
+      "id": "INV-002",
+      "statement": "No artifact may be approved without an evidence bundle.",
+      "severity": "critical",
+      "enforcement": "approval gate validation",
+      "evidence_required": true
+    },
+    {
+      "id": "INV-003",
+      "statement": "Security-sensitive actions require explicit permission and review.",
+      "severity": "critical",
+      "enforcement": "security permission check",
+      "evidence_required": true
+    },
+    {
+      "id": "INV-004",
+      "statement": "All important runtime actions must emit telemetry.",
+      "severity": "error",
+      "enforcement": "telemetry emission check",
+      "evidence_required": true
+    },
+    {
+      "id": "INV-005",
+      "statement": "Irreversible decisions require explicit decision records and stronger review.",
+      "severity": "error",
+      "enforcement": "decision framework validation",
+      "evidence_required": true
+    },
+    {
+      "id": "INV-006",
+      "statement": "Strategic governance rules live in governance/ and operational execution rules live in kit/.",
+      "severity": "error",
+      "enforcement": "layer-boundary validation",
+      "evidence_required": true
+    },
+    {
+      "id": "INV-007",
+      "statement": "Provider integrations and consumer examples are intentionally excluded from the v2 core.",
+      "severity": "warning",
+      "enforcement": "scope boundary validation",
+      "evidence_required": false
+    }
+  ],
+  "relationships": [
+    {
+      "from": "topology",
+      "to": "core",
+      "mode": "governs",
+      "allowed": true,
+      "reason": "team ownership and interaction modes constrain how core is used."
+    },
+    {
+      "from": "core",
+      "to": "state",
+      "mode": "writes",
+      "allowed": false,
+      "reason": "only orchestrator may write canonical state."
+    },
+    {
+      "from": "core",
+      "to": "state",
+      "mode": "reads",
+      "allowed": true,
+      "reason": "core reads shared state to coordinate roles."
+    },
+    {
+      "from": "validation",
+      "to": "state",
+      "mode": "validates",
+      "allowed": true,
+      "reason": "validation checks canonical state and artifacts."
+    },
+    {
+      "from": "security",
+      "to": "state",
+      "mode": "observes",
+      "allowed": true,
+      "reason": "security reviews state and artifacts without mutating state."
+    },
+    {
+      "from": "decision",
+      "to": "core",
+      "mode": "governs",
+      "allowed": true,
+      "reason": "decision framework standardizes agent choices."
+    },
+    {
+      "from": "telemetry",
+      "to": "learning",
+      "mode": "learns",
+      "allowed": true,
+      "reason": "observability feeds incidents and retrospectives."
+    },
+    {
+      "from": "economics",
+      "to": "core",
+      "mode": "costs",
+      "allowed": true,
+      "reason": "workflow budgeting constrains execution."
+    },
+    {
+      "from": "gitops",
+      "to": "core",
+      "mode": "governs",
+      "allowed": true,
+      "reason": "versioning and commit discipline govern changes to the kit."
+    },
+    {
+      "from": "governance",
+      "to": "kit",
+      "mode": "governs",
+      "allowed": true,
+      "reason": "strategic governance constrains operational execution."
+    },
+    {
+      "from": "kit",
+      "to": "scripts",
+      "mode": "orchestrates",
+      "allowed": true,
+      "reason": "kit execution is exposed through runnable helpers."
+    },
+    {
+      "from": "scripts",
+      "to": "kit",
+      "mode": "reads",
+      "allowed": true,
+      "reason": "scripts consume kit contracts and state."
+    },
+    {
+      "from": "kit",
+      "to": "governance",
+      "mode": "reads",
+      "allowed": true,
+      "reason": "operational files reference strategic policy."
+    },
+    {
+      "from": "docs",
+      "to": "planning_artifacts",
+      "mode": "reads",
+      "allowed": false,
+      "reason": "durable docs must not depend directly on ephemeral drafts."
+    }
+  ],
+  "workflow": {
+    "phases": [
+      "intake",
+      "elicitation",
+      "architecture",
+      "documentation",
+      "testing",
+      "implementation",
+      "review",
+      "release",
+      "learning"
+    ],
+    "entry": "intake",
+    "exit": "archived",
+    "gates": [
+      "validation",
+      "security",
+      "decision",
+      "budget",
+      "telemetry",
+      "evidence_bundle"
+    ]
+  },
+  "artifact_lifecycle": {
+    "states": [
+      "draft",
+      "reviewed",
+      "approved",
+      "archived"
+    ],
+    "transitions": [
+      {
+        "from": "draft",
+        "to": "reviewed",
+        "requires": [
+          "owner_assigned",
+          "minimum_structure_present"
+        ]
+      },
+      {
+        "from": "reviewed",
+        "to": "approved",
+        "requires": [
+          "validation_passed",
+          "evidence_bundle_present",
+          "security_checked",
+          "decision_record_present"
+        ]
+      },
+      {
+        "from": "approved",
+        "to": "archived",
+        "requires": [
+          "version_tagged",
+          "trace_recorded"
+        ]
+      }
+    ],
+    "promotion_rule": "Artifacts may move from planning_artifacts/ to docs/ only after reviewed and approved states are satisfied."
+  },
+  "decision_framework": {
+    "template": "governance/decision/decision-template.md",
+    "criteria": [
+      "cost",
+      "benefit",
+      "reversibility",
+      "systemic_impact",
+      "risk",
+      "time_to_implement",
+      "maintainability",
+      "auditability"
+    ]
+  },
+  "security": {
+    "threat_model": "security/threat-model.md",
+    "trust_boundaries": [
+      "external_input_to_system",
+      "planning_artifacts_to_canonical_state",
+      "agent_local_context_to_shared_state",
+      "shared_state_to_approved_artifacts",
+      "runtime_telemetry_to_learning"
+    ],
+    "agent_permissions": "security/agent-permissions.schema.json"
+  },
+  "observability": {
+    "events_schema": "runtime/telemetry/events.schema.json",
+    "metrics": [
+      "contract_compliance",
+      "planning_execution_drift",
+      "review_latency_ms",
+      "retry_count",
+      "token_usage",
+      "trace_completeness"
+    ],
+    "traces": "runtime/telemetry/traces.md"
+  },
+  "economics": {
+    "budget_schema": "governance/economics/execution-budget.schema.json",
+    "cost_model": "governance/economics/cost-model.md",
+    "budget_controls": [
+      "soft_limit_warning",
+      "hard_limit_block",
+      "approval_over_threshold",
+      "drift_based_review"
+    ]
+  },
+  "gitops": {
+    "semantic_versioning": "governance/gitops/semantic-versioning.md",
+    "conventional_commits": "governance/gitops/conventional-commits.md",
+    "gitflow": "governance/gitops/gitflow.md"
+  },
+  "learning": {
+    "incidents": "learning/incidents",
+    "retrospectives": "learning/retrospectives",
+    "pattern_evolution": "learning/pattern-evolution.md"
+  }
+}

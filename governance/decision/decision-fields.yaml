@@ -1,0 +1,47 @@
+decision_id: DEC-YYYY-NNN
+title: string
+status: Proposed|Accepted|Rejected|Superseded|Deferred
+date: YYYY-MM-DD
+owners:
+  primary_owner: string
+  reviewers: [string]
+  approver: string
+context: string
+decision: string
+alternatives_considered: [string]
+evaluation_criteria:
+  cost: number
+  benefit: number
+  reversibility: number
+  systemic_impact: number
+  risk: number
+  time_to_implement: number
+  maintainability: number
+  auditability: number
+tradeoff_summary: string
+consequences:
+  positive: [string]
+  negative: [string]
+  accepted_costs: [string]
+reversibility:
+  reversible: Yes|No|Partially
+  rollback_path: string
+  cost_of_rollback: string
+  time_to_rollback: string
+systemic_impact:
+  local_impact: string
+  cross_module_impact: string
+  cross_team_impact: string
+  cross_runtime_impact: string
+evidence:
+  requirements: [string]
+  adrs: [string]
+  telemetry: [string]
+  incidents: [string]
+  validation_output: [string]
+  review_output: [string]
+approval:
+  approved_by: string
+  approval_date: YYYY-MM-DD
+  approval_evidence_bundle: string
+follow_up_actions: [string]

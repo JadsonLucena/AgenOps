@@ -1,0 +1,30 @@
+{
+  "types": [
+    "feat",
+    "fix",
+    "docs",
+    "refactor",
+    "test",
+    "chore",
+    "perf",
+    "ci",
+    "build",
+    "revert"
+  ],
+  "scopes": [
+    "core",
+    "state",
+    "validation",
+    "security",
+    "runtime",
+    "experience",
+    "decision",
+    "economics",
+    "gitops"
+  ],
+  "rules": {
+    "type-required": true,
+    "scope-required": true,
+    "subject-max-length": 100
+  }
+}

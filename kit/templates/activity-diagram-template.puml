@@ -1,0 +1,14 @@
+@startuml
+title Activity Diagram - <name>
+
+start
+:Identify trigger;
+if (Decision needed?) then (yes)
+  :Evaluate alternatives;
+  :Record decision summary;
+else (no)
+  :Proceed;
+endif
+:Complete action;
+stop
+@enduml

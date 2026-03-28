@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RuntimeTelemetryEvent",
+  "type": "object",
+  "required": [
+    "timestamp",
+    "event_type",
+    "system",
+    "run_id",
+    "task_id",
+    "actor",
+    "phase",
+    "severity"
+  ],
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "description": "ISO-8601 timestamp"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "decision_recorded",
+        "contract_validated",
+        "contract_violation",
+        "artifact_promoted",
+        "artifact_rejected",
+        "gate_passed",
+        "gate_failed",
+        "review_requested",
+        "review_completed",
+        "state_merged",
+        "state_rejected",
+        "snapshot_created",
+        "snapshot_restored",
+        "telemetry_anomaly"
+      ]
+    },
+    "system": {
+      "type": "string",
+      "description": "System or kit identifier"
+    },
+    "run_id": {
+      "type": "string",
+      "description": "Unique execution run identifier"
+    },
+    "task_id": {
+      "type": "string",
+      "description": "Task identifier"
+    },
+    "actor": {
+      "type": "object",
+      "required": [
+        "kind",
+        "name"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "agent",
+            "human",
+            "service"
+          ]
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "phase": {
+      "type": "string",
+      "enum": [
+        "intake",
+        "elicitation",
+        "architecture",
+        "documentation",
+        "testing",
+        "implementation",
+        "refactor",
+        "review",
+        "release",
+        "archived"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "debug",
+        "info",
+        "notice",
+        "warning",
+        "error",
+        "critical"
+      ]
+    },
+    "contract_id": {
+      "type": "string"
+    },
+    "artifact_id": {
+      "type": "string"
+    },
+    "state_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "decision": {
+      "type": "object",
+      "properties": {
+        "summary": {
+          "type": "string"
+        },
+        "rationale_ref": {
+          "type": "string"
+        },
+        "alternatives_considered": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "validator": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "fail",
+            "conditional"
+          ]
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "contract_compliance": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "planning_execution_drift": {
+          "type": "number",
+          "minimum": 0
+        },
+        "review_latency_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "token_usage": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "retry_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "parent_span_id": {
+          "type": "string"
+        },
+        "span_id": {
+          "type": "string"
+        },
+        "trace_id": {
+          "type": "string"
+        }
+      }
+    },
+    "details": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,40 @@
+title: Subagent Local State Schema
+type: object
+required:
+  - agent_id
+  - task_id
+  - phase
+  - status
+  - started_at
+  - updated_at
+properties:
+  agent_id:
+    type: string
+  task_id:
+    type: string
+  phase:
+    type: string
+  status:
+    type: string
+    enum: [pending, active, blocked, completed]
+  local_notes:
+    type: array
+    items:
+      type: string
+  observations:
+    type: array
+    items:
+      type: string
+  proposed_updates:
+    type: array
+    items:
+      type: object
+  started_at:
+    type: string
+  updated_at:
+    type: string
+  context_snapshot_path:
+    type: string
+  summary_path:
+    type: string
+additionalProperties: false

@@ -1,0 +1,316 @@
+governance-system-v2/
+├── docs/
+│   ├── api/
+│   │   └── README.md
+│   ├── architecture/
+│   │   └── README.md
+│   ├── compliance/
+│   │   └── README.md
+│   ├── data/
+│   │   └── README.md
+│   ├── quality/
+│   │   └── README.md
+│   └── README.md
+├── governance/
+│   ├── decision/
+│   │   ├── README.md
+│   │   ├── decision-fields.yaml
+│   │   ├── decision-policy.md
+│   │   ├── decision-record-example.md
+│   │   ├── decision-template.md
+│   │   ├── decision-tree.md
+│   │   └── tradeoff-matrix.md
+│   ├── economics/
+│   │   ├── README-usage.md
+│   │   ├── README.md
+│   │   ├── budget-policy.md
+│   │   ├── cost-model.md
+│   │   ├── execution-budget.example.json
+│   │   ├── execution-budget.schema.json
+│   │   └── unit-economics.md
+│   ├── gitops/
+│   │   ├── README.md
+│   │   ├── changelog.md
+│   │   ├── commit-lint.config.json
+│   │   ├── conventional-commits.md
+│   │   ├── gitflow.md
+│   │   ├── release-process.md
+│   │   ├── semantic-versioning.md
+│   │   └── versioning-policy.md
+│   ├── topology/
+│   │   ├── README.md
+│   │   ├── flow-model.md
+│   │   ├── interaction-modes.md
+│   │   ├── ownership-map.yaml
+│   │   └── team-types.md
+│   └── README.md
+├── kit/
+│   ├── agents/
+│   │   ├── architecture/
+│   │   │   └── contract.md
+│   │   ├── devops/
+│   │   │   └── contract.md
+│   │   ├── orchestrator/
+│   │   │   └── contract.md
+│   │   ├── qa/
+│   │   │   └── contract.md
+│   │   ├── requirements/
+│   │   │   └── contract.md
+│   │   ├── review/
+│   │   │   └── contract.md
+│   │   ├── security/
+│   │   │   └── contract.md
+│   │   ├── shared/
+│   │   │   ├── contract-template.md
+│   │   │   ├── dispatch-protocol.md
+│   │   │   └── handoff-envelope.md
+│   │   ├── README.md
+│   │   └── manifest.md
+│   ├── checklists/
+│   │   ├── api-change-checklist.md
+│   │   ├── database-change-checklist.md
+│   │   ├── definition-of-done.md
+│   │   ├── release-checklist.md
+│   │   ├── security-checklist.md
+│   │   └── test-generation-checklist.md
+│   ├── core/
+│   │   ├── playbooks/
+│   │   │   ├── brainstorm-and-elicitation.md
+│   │   │   ├── design-baby-steps.md
+│   │   │   ├── devops-readiness.md
+│   │   │   ├── doc-consistency-check.md
+│   │   │   ├── generate-activity-diagrams.md
+│   │   │   ├── generate-bdd.md
+│   │   │   ├── generate-requirements-spec.md
+│   │   │   ├── generate-spec-document-design.md
+│   │   │   ├── generate-test-rules.md
+│   │   │   ├── qa-quality-gate.md
+│   │   │   ├── security-review.md
+│   │   │   ├── update-adr.md
+│   │   │   ├── update-mer.md
+│   │   │   ├── update-openapi.md
+│   │   │   └── update-uml.md
+│   │   ├── roles/
+│   │   │   ├── code-reviewer.md
+│   │   │   ├── devops-reviewer.md
+│   │   │   ├── quality-engineer.md
+│   │   │   ├── requirements-engineer.md
+│   │   │   ├── security-reviewer.md
+│   │   │   ├── software-architect.md
+│   │   │   └── software-engineer-orchestrator.md
+│   │   ├── workflows/
+│   │   │   ├── bugfix-flow.md
+│   │   │   ├── default-development-flow.md
+│   │   │   ├── hotfix-flow.md
+│   │   │   └── refactor-flow.md
+│   │   ├── README.md
+│   │   └── manifest.md
+│   ├── experience/
+│   │   ├── README.md
+│   │   ├── command-map.md
+│   │   ├── decision-routing.md
+│   │   ├── manifest.md
+│   │   ├── menu-patterns.md
+│   │   ├── next-step-guidance.md
+│   │   ├── onboarding.md
+│   │   ├── phase-map.md
+│   │   ├── quick-flow.md
+│   │   ├── state-machine.md
+│   │   ├── state-model.md
+│   │   ├── state-router.py
+│   │   └── state-store.md
+│   ├── playbooks/
+│   │   ├── brainstorm-and-elicitation.md
+│   │   ├── design-baby-steps.md
+│   │   ├── devops-readiness.md
+│   │   ├── doc-consistency-check.md
+│   │   ├── generate-activity-diagrams.md
+│   │   ├── generate-bdd.md
+│   │   ├── generate-requirements-spec.md
+│   │   ├── generate-spec-document-design.md
+│   │   ├── generate-test-rules.md
+│   │   ├── qa-quality-gate.md
+│   │   ├── security-review.md
+│   │   ├── update-adr.md
+│   │   ├── update-mer.md
+│   │   ├── update-openapi.md
+│   │   └── update-uml.md
+│   ├── policies/
+│   │   ├── README.md
+│   │   ├── agent-telemetry-policy.md
+│   │   ├── approval-policy.md
+│   │   ├── breaking-change-policy.md
+│   │   ├── change-classification.md
+│   │   ├── command-policy.md
+│   │   ├── data-handling-policy.md
+│   │   ├── decision-rationale-policy.md
+│   │   ├── document-generation-triggers.md
+│   │   ├── documentation-hierarchy.md
+│   │   ├── prompt-injection-defense.md
+│   │   ├── sandbox-policy.md
+│   │   ├── security-by-design.md
+│   │   ├── supply-chain-security.md
+│   │   └── versioning-and-compatibility.md
+│   ├── roles/
+│   │   ├── code-reviewer.md
+│   │   ├── devops-reviewer.md
+│   │   ├── quality-engineer.md
+│   │   ├── requirements-engineer.md
+│   │   ├── security-reviewer.md
+│   │   ├── software-architect.md
+│   │   └── software-engineer-orchestrator.md
+│   ├── runtime/
+│   │   ├── cache/
+│   │   │   ├── cache-invalidation-policy.md
+│   │   │   ├── cache-strategy.md
+│   │   │   └── deterministic-step-cache.md
+│   │   ├── context/
+│   │   │   ├── context-assembly-policy.md
+│   │   │   ├── context-budget-policy.md
+│   │   │   ├── context-pruning-policy.md
+│   │   │   ├── context-window-management.md
+│   │   │   ├── snapshotting-policy.md
+│   │   │   ├── summarization-policy.md
+│   │   │   └── summarization-rules.md
+│   │   ├── memory/
+│   │   │   ├── long-term-memory-policy.md
+│   │   │   ├── memory-retention-and-pruning.md
+│   │   │   └── short-term-memory-policy.md
+│   │   ├── observability/
+│   │   │   ├── agent-execution-telemetry.md
+│   │   │   └── audit-trail-policy.md
+│   │   ├── tokens/
+│   │   │   ├── cost-control-guidelines.md
+│   │   │   ├── response-shaping-policy.md
+│   │   │   └── token-budget-policy.md
+│   │   └── README.md
+│   ├── security/
+│   │   ├── agent-security/
+│   │   │   ├── agent-execution-audit.md
+│   │   │   ├── prompt-injection-defense.md
+│   │   │   ├── secret-handling-policy.md
+│   │   │   └── tool-permission-matrix.md
+│   │   ├── supply-chain/
+│   │   │   ├── artifact-provenance-policy.md
+│   │   │   ├── dependency-integrity-policy.md
+│   │   │   ├── sbom-policy.md
+│   │   │   └── supply-chain-checklist.md
+│   │   ├── README.md
+│   │   └── manifest.md
+│   ├── state/
+│   │   ├── README.md
+│   │   ├── handoff-envelope.md
+│   │   ├── orchestrator_merge_policy.md
+│   │   ├── shared_task_state.schema.yaml
+│   │   ├── shared_task_state_policy.md
+│   │   ├── state-versioning-policy.md
+│   │   └── subagent_state.schema.yaml
+│   ├── templates/
+│   │   ├── AGENTS.root.template.md
+│   │   ├── README.md
+│   │   ├── activity-diagram-template.puml
+│   │   ├── architecture-decision-template.md
+│   │   ├── assumptions-template.md
+│   │   ├── bdd-template.feature
+│   │   ├── brainstorm-brief-template.md
+│   │   ├── code-review-report-template.md
+│   │   ├── design-chunk-template.md
+│   │   ├── devops-review-template.md
+│   │   ├── final-delivery-summary-template.md
+│   │   ├── glossary-template.md
+│   │   ├── open-questions-template.md
+│   │   ├── qa-report-template.md
+│   │   ├── requirements-spec-template.md
+│   │   ├── security-review-report-template.md
+│   │   ├── spec-document-design-template.md
+│   │   └── traceability-matrix-template.md
+│   ├── validation/
+│   │   ├── rules/
+│   │   │   ├── forbidden-patterns.md
+│   │   │   ├── naming.md
+│   │   │   ├── references.md
+│   │   │   └── required-fields.md
+│   │   ├── README.md
+│   │   ├── agent-validator.md
+│   │   ├── checklist-validator.md
+│   │   ├── manifest.md
+│   │   ├── policy-validator.md
+│   │   ├── run-validator.sh
+│   │   ├── semantic-rules.md
+│   │   ├── skill-validator.md
+│   │   └── validate_kit.py
+│   ├── workflows/
+│   │   ├── bugfix-flow.md
+│   │   ├── default-development-flow.md
+│   │   ├── hotfix-flow.md
+│   │   └── refactor-flow.md
+│   ├── README.md
+│   └── manifest.md
+├── learning/
+│   ├── incidents/
+│   │   └── README.md
+│   ├── retrospectives/
+│   │   └── README.md
+│   ├── README.md
+│   ├── feedback-loop-integration.md
+│   └── pattern-evolution.md
+├── planning_artifacts/
+│   ├── state/
+│   │   ├── README.md
+│   │   └── shared-task-state.example.yaml
+│   └── README.md
+├── runtime/
+│   └── telemetry/
+│       ├── README-usage.md
+│       ├── README.md
+│       ├── evaluation-metrics.md
+│       ├── events.schema.json
+│       ├── logging-contract.md
+│       └── traces.md
+├── scripts/
+│   ├── docs/
+│   │   ├── doc-consistency-check.sh
+│   │   ├── update-mer.sh
+│   │   ├── update-openapi.sh
+│   │   └── update-uml.sh
+│   ├── experience/
+│   │   ├── context-compact.py
+│   │   ├── context-compact.sh
+│   │   ├── context-status.py
+│   │   ├── context-status.sh
+│   │   ├── next-step.sh
+│   │   ├── print-menu.sh
+│   │   ├── spec-design.sh
+│   │   ├── state-init.sh
+│   │   ├── state-router.py
+│   │   ├── state-show.sh
+│   │   └── state-update.sh
+│   ├── lib/
+│   │   └── common.sh
+│   ├── quality/
+│   │   ├── qa-quality-gate.sh
+│   │   ├── run-lint.sh
+│   │   ├── run-sonar.sh
+│   │   └── run-tests.sh
+│   └── validation/
+│       └── validate-kit.sh
+├── security/
+│   ├── README-usage.md
+│   ├── README.md
+│   ├── agent-permissions-example.json
+│   ├── agent-permissions-policy.md
+│   ├── agent-permissions.schema.json
+│   ├── prompt-injection-defense.md
+│   ├── secure-by-design-principles.md
+│   ├── threat-model.md
+│   └── trust-boundaries.md
+├── CHANGELOG.md
+├── LICENSE
+├── MERGE_NOTES.md
+├── README.md
+├── governance.meta.example.json
+├── governance.meta.schema.json
+├── integration-map.md
+├── rules.md
+├── validation-output.json
+└── validator.py

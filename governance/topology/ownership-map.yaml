@@ -1,0 +1,63 @@
+platform_team:
+  name: Platform Team
+  owns:
+  - kit/core
+  - kit/runtime
+  - kit/state
+  - kit/validation
+  - kit/security
+  - kit/judging
+  - kit/experience
+  - kit/templates
+  - kit/policies
+  - governance/topology
+  does_not_own:
+  - stream-aligned product requirements
+  - stream-specific delivery commitments
+  - consumer team sprint scope
+  primary_flows:
+  - publish contracts
+  - maintain validation
+  - curate templates
+  - version state schema
+  - ship platform changes
+stream_aligned_team:
+  name: Stream-Aligned Team
+  owns:
+  - domain code
+  - product backlog
+  - implementation
+  - tests
+  - release readiness for its stream
+  does_not_own:
+  - kit policy
+  - shared governance contracts
+  - cross-team standardization
+  - global validation rules
+  primary_flows:
+  - consume kit contracts
+  - produce evidence bundles
+  - request reviews
+  - ship domain increments
+enabling_team:
+  name: Enabling Team
+  owns:
+  - adoption playbooks
+  - training materials
+  - pattern demonstrations
+  - workflow coaching
+  - feedback capture
+  does_not_own:
+  - long-term platform ownership
+  - stream delivery commitments
+  - governance enforcement authority
+  primary_flows:
+  - coach teams
+  - prototype practices
+  - transfer capability
+  - surface friction
+shared_rules:
+  dominant_flow: stream-aligned teams pull from the platform; the platform does not
+    push local product decisions
+  escalation_owner: software-engineer-orchestrator for canonical governance state
+  exception_owner: policy-defined human approver or security reviewer where relevant

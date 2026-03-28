@@ -1,0 +1,59 @@
+{
+  "budget_id": "BUD-2026-001",
+  "scope": {
+    "type": "workflow",
+    "identifier": "agent-assisted-governance-core"
+  },
+  "owner": "software-engineer-orchestrator",
+  "period": {
+    "start": "2026-03-27",
+    "end": "2026-04-27"
+  },
+  "currency": "USD",
+  "limits": {
+    "soft_limit": 250.0,
+    "hard_limit": 400.0,
+    "per_step_limit": 20.0,
+    "per_run_limit": 35.0
+  },
+  "alerts": {
+    "warn_at": 0.7,
+    "block_at": 0.9,
+    "notify": [
+      "software-engineer-orchestrator",
+      "platform-team"
+    ]
+  },
+  "approval_required_over": 300.0,
+  "measurement": {
+    "unit": "workflow_run",
+    "basis": "workflow_run",
+    "include_human_time": true,
+    "include_compute": true,
+    "include_storage": true,
+    "include_retries": true
+  },
+  "cost_categories": [
+    "fixed",
+    "variable",
+    "hidden",
+    "exception"
+  ],
+  "signals": {
+    "telemetry_metric_names": [
+      "token_usage",
+      "review_latency_ms",
+      "retry_count",
+      "planning_execution_drift",
+      "contract_compliance"
+    ],
+    "drift_metric_name": "planning_execution_drift",
+    "compliance_metric_name": "contract_compliance"
+  },
+  "approval": {
+    "required": true,
+    "approver_role": "software-engineer-orchestrator",
+    "evidence_bundle_required": true
+  },
+  "notes": "This budget covers AI-agent execution, review loops, and durable governance operations."
+}

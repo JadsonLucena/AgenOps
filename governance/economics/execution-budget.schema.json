@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ExecutionBudget",
+  "type": "object",
+  "required": [
+    "budget_id",
+    "scope",
+    "owner",
+    "period",
+    "currency",
+    "limits",
+    "alerts",
+    "approval_required_over",
+    "measurement"
+  ],
+  "properties": {
+    "budget_id": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "type",
+        "identifier"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "task",
+            "workflow",
+            "team",
+            "project",
+            "environment"
+          ]
+        },
+        "identifier": {
+          "type": "string"
+        }
+      }
+    },
+    "owner": {
+      "type": "string"
+    },
+    "period": {
+      "type": "object",
+      "required": [
+        "start",
+        "end"
+      ],
+      "properties": {
+        "start": {
+          "type": "string"
+        },
+        "end": {
+          "type": "string"
+        }
+      }
+    },
+    "currency": {
+      "type": "string",
+      "examples": [
+        "USD",
+        "BRL"
+      ]
+    },
+    "limits": {
+      "type": "object",
+      "required": [
+        "soft_limit",
+        "hard_limit"
+      ],
+      "properties": {
+        "soft_limit": {
+          "type": "number",
+          "minimum": 0
+        },
+        "hard_limit": {
+          "type": "number",
+          "minimum": 0
+        },
+        "per_step_limit": {
+          "type": "number",
+          "minimum": 0
+        },
+        "per_run_limit": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "alerts": {
+      "type": "object",
+      "properties": {
+        "warn_at": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "block_at": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "notify": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "approval_required_over": {
+      "type": "number",
+      "minimum": 0
+    },
+    "measurement": {
+      "type": "object",
+      "required": [
+        "unit",
+        "basis"
+      ],
+      "properties": {
+        "unit": {
+          "type": "string"
+        },
+        "basis": {
+          "type": "string",
+          "enum": [
+            "token",
+            "request",
+            "artifact",
+            "approval",
+            "workflow_run",
+            "release",
+            "hour"
+          ]
+        },
+        "include_human_time": {
+          "type": "boolean"
+        },
+        "include_compute": {
+          "type": "boolean"
+        },
+        "include_storage": {
+          "type": "boolean"
+        },
+        "include_retries": {
+          "type": "boolean"
+        }
+      }
+    },
+    "cost_categories": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "fixed",
+          "variable",
+          "hidden",
+          "exception"
+        ]
+      }
+    },
+    "signals": {
+      "type": "object",
+      "properties": {
+        "telemetry_metric_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "drift_metric_name": {
+          "type": "string"
+        },
+        "compliance_metric_name": {
+          "type": "string"
+        }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "approver_role": {
+          "type": "string"
+        },
+        "evidence_bundle_required": {
+          "type": "boolean"
+        }
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}
