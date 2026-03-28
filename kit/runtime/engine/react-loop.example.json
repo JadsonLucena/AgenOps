@@ -1,0 +1,28 @@
+{
+  "step_id": "implementation",
+  "role": "software-engineer-orchestrator",
+  "state_version": 12,
+  "inputs": [
+    "approved_requirements",
+    "architecture_decision",
+    "current_step_contract"
+  ],
+  "allowed_actions": [
+    "generate_patch",
+    "request_validation",
+    "request_review"
+  ],
+  "selected_action": "request_validation",
+  "action_result": {
+    "status": "submitted"
+  },
+  "verification_result": {
+    "status": "pending"
+  },
+  "telemetry_event_ids": [
+    "evt-001",
+    "evt-002",
+    "evt-003"
+  ],
+  "stop_reason": "awaiting_validation"
+}

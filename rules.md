@@ -21,7 +21,10 @@
 A governance instance is valid only if:
 - all required layers exist
 - invariants are explicit
-- forbidden relationships are absent or marked disallowed
+- forbidden relationships are absent or marked as disallowed
 - lifecycle transitions are constrained
 - decision, security, observability, economics, gitops, and learning are linked
 - strategic governance and operational execution are not conflated
+
+## Use
+This is the smallest practical version of a unified system meta-model. It is intentionally not exhaustive; it is designed to be extended safely.

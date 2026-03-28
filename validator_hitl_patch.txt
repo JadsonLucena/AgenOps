@@ -1,0 +1,27 @@
+# (only showing relevant addition snippet)
+
+def validate_hitl_policy(root, findings):
+    path = root / "kit/policies/human-in-the-loop-policy.md"
+    if not path.exists():
+        findings.append(("error", "HITL_MISSING", "Human-in-the-loop policy missing"))
+        return
+
+    text = path.read_text().lower()
+
+    required_terms = [
+        "irreversible",
+        "security",
+        "budget",
+        "validation",
+        "policy",
+        "drift",
+        "block",
+        "approval",
+    ]
+
+    for term in required_terms:
+        if term not in text:
+            findings.append(("error", "HITL_INCOMPLETE", f"Missing term: {term}"))
+
+# Hook inside main validation flow
+# validate_hitl_policy(root, findings)

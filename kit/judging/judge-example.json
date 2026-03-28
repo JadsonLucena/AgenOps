@@ -1,0 +1,21 @@
+{
+  "score": 82,
+  "dimensions": {
+    "clarity": 4,
+    "completeness": 4,
+    "consistency": 4,
+    "correctness": 4,
+    "security_awareness": 3,
+    "maintainability": 4,
+    "performance_awareness": 3,
+    "cost_awareness": 2
+  },
+  "strengths": [
+    "well structured",
+    "consistent logic"
+  ],
+  "weaknesses": [
+    "cost considerations are weak"
+  ],
+  "recommendation": "revise"
+}
